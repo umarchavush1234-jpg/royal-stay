@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Palace | Luxury Hotel</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #f7f1e7 0%, #fffaf5 100%);
+            color: #1d1d1d;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d1f2a, #123a36 45%, #2d5d53);
+            color: white;
+            padding: 24px 0 18px;
+            border-bottom: 4px solid #d4a85f;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            letter-spacing: 4px;
+            color: #f4d39a;
+        }
+
+        .brand h3 {
+            margin: 10px 0 14px;
+            letter-spacing: 4px;
+            color: #e7e7e7;
+            font-size: 1rem;
+        }
+
+        .tagline {
+            color: #f2e7d6;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .nav-line {
+            border: none;
+            height: 1px;
+            background: rgba(244, 211, 154, 0.6);
+            margin: 10px auto 18px;
+            width: 90%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: #f9f0e4;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: 0.25s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.08);
+            color: #ffd98a;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .section-title h1 {
+            color: #a87935;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .section-title p {
+            color: #5d5d5d;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .hero {
+            padding-top: 34px;
+            background: linear-gradient(180deg, #f8f1e9, #fffaf5 100%);
+        }
+
+        .hero-image {
+            width: 95%;
+            height: 500px;
+            margin: 0 auto 30px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px rgba(15, 28, 29, 0.15);
+            border: 4px solid rgba(168, 121, 53, 0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-inner {
+            text-align: center;
+        }
+
+        .hero-inner h1 {
+            color: #a87935;
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            margin: 10px 0 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero-inner h2 {
+            color: #1b2b2a;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin: 0 0 18px;
+        }
+
+        .hero-inner p {
+            max-width: 700px;
+            margin: 0 auto 16px;
+            color: #4d4d4d;
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .rating {
+            display: inline-block;
+            color: #b8842d;
+            background: #fff4dc;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 1px solid #efcf8d;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #c99543, #a87935);
+            color: #fff;
+            padding: 16px 30px;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 22px rgba(168, 121, 53, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 28px rgba(168, 121, 53, 0.3);
+        }
+
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 34px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 22px 40px rgba(17, 24, 39, 0.12);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-top: 0;
+            color: #1f2a2d;
+        }
+
+        .about-text p {
+            color: #515151;
+            line-height: 1.8;
+            font-size: 1.04rem;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 18px 28px rgba(13, 31, 42, 0.08);
+            border: 1px solid rgba(168, 121, 53, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 30px rgba(13, 31, 42, 0.12);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .room-card .content {
+            padding: 22px 18px 24px;
+            text-align: center;
+        }
+
+        .room-card h2 {
+            margin: 0 0 10px;
+            color: #1d2a32;
+        }
+
+        .room-card p {
+            color: #585858;
+            line-height: 1.7;
+            margin: 0 0 14px;
+        }
+
+        .price {
+            color: #a87935;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .room-card .book-btn {
+            display: inline-block;
+            background: #f4d39a;
+            color: #1a1a1a;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        .family-room {
+            margin: 26px auto 0;
+            width: min(520px, 80%);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            gap: 22px;
+        }
+
+        .facility {
+            background: linear-gradient(180deg, #fffefc, #fcf3ea);
+            padding: 28px 18px;
+            text-align: center;
+            border-radius: 22px;
+            border: 1px solid rgba(168, 121, 53, 0.15);
+            box-shadow: 0 15px 25px rgba(22, 32, 31, 0.05);
+        }
+
+        .facility .icon {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .facility h3 {
+            margin: 0 0 10px;
+            color: #1d2a32;
+        }
+
+        .facility p {
+            margin: 0;
+            color: #5b5b5b;
+            line-height: 1.7;
+        }
+
+        .booking-box {
+            background: linear-gradient(180deg, #fffdf9, #f5efe7);
+            width: min(760px, 90%);
+            margin: 0 auto;
+            border-radius: 28px;
+            padding: 30px 24px;
+            border: 1px solid rgba(168, 121, 53, 0.15);
+            box-shadow: 0 18px 32px rgba(22, 32, 31, 0.08);
+        }
+
+        form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2b2b2b;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 12px;
+            border: 1px solid #d8d2c7;
+            background: white;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .submit-row input {
+            width: auto;
+            background: linear-gradient(135deg, #c99543, #a87935);
+            color: white;
+            border: none;
+            padding: 14px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 12px 22px rgba(168, 121, 53, 0.22);
+        }
+
+        .submit-row input[type="reset"] {
+            background: #e7dfd6;
+            color: #2d2d2d;
+            box-shadow: none;
+        }
+
+        .management-table {
+            width: min(980px, 90%);
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 18px 28px rgba(9, 24, 21, 0.08);
+        }
+
+        .management-table th,
+        .management-table td {
+            border: 1px solid #e4dccd;
+            padding: 16px 18px;
+            text-align: left;
+        }
+
+        .management-table th {
+            background: #f0d6a3;
+            color: #1f2a2d;
+        }
+
+        .contact-inner {
+            text-align: center;
+            background: linear-gradient(180deg, #fffdf8, #f7efe3);
+            border-radius: 24px;
+            width: min(850px, 90%);
+            margin: 0 auto;
+            padding: 30px 24px;
+            border: 1px solid rgba(168, 121, 53, 0.15);
+            box-shadow: 0 18px 28px rgba(14, 28, 25, 0.06);
+        }
+
+        .contact-inner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #1d2a32;
+        }
+
+        .contact-inner p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            background: #101820;
+            color: white;
+            padding: 28px 0 18px;
+        }
+
+        .footer-box {
+            text-align: center;
+        }
+
+        .footer-box h2 {
+            color: #f4d39a;
+            margin: 0 0 10px;
+            letter-spacing: 3px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin: 18px 0 12px;
+            color: #f3efea;
+        }
+
+        @media (max-width: 900px) {
+            .about-wrap,
+            .rooms-grid,
+            .facilities-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            nav {
+                gap: 8px;
+                font-size: 0.78rem;
+            }
+
+            .hero-image {
+                height: 320px;
+            }
+
+            .submit-row {
+                flex-direction: column;
+            }
+
+            .submit-row input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <div class="brand" style="text-align:center;">
+            <h1>✦ GRAND PALACE ✦</h1>
+            <h3>LUXURY HOTEL & RESORTS</h3>
+            <p class="tagline">Experience Luxury | Experience Comfort | Experience Happiness</p>
+        </div>
+        <hr class="nav-line">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#rooms">Our Rooms</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#booking">Booking</a>
+            <a href="#management">Management</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <hr class="nav-line">
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400" alt="Luxury Hotel">
+        </div>
+
+        <div class="hero-inner">
+            <h1>Welcome to Grand Palace</h1>
+            <h2>Where Luxury Meets Comfort</h2>
+            <p>Enjoy a wonderful stay with beautiful rooms, delicious food, and world-class hospitality designed for unforgettable memories.</p>
+            <div class="rating">★★★★★ 5 Star Luxury Experience</div>
+            <br>
+            <a class="cta-btn" href="#booking">Reserve Your Room Now</a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="section-title">
+            <h1>ABOUT OUR HOTEL</h1>
+        </div>
+
+        <div class="about-wrap">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1000" alt="Hotel building">
+            </div>
+            <div class="about-text">
+                <h2>Welcome to Your Dream Destination</h2>
+                <p>Grand Palace is a luxury hotel designed to provide unforgettable experiences to our guests. We offer elegant accommodation, exceptional service, peaceful surroundings and modern facilities for every type of traveler.</p>
+                <p>Whether you are travelling with family, friends, or for business, we ensure every moment feels special, refreshing, and comfortable from arrival to departure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="rooms">
+    <div class="container">
+        <div class="section-title">
+            <h1>OUR LUXURY ROOMS</h1>
+            <p>Choose the perfect room for your comfortable stay.</p>
+        </div>
+
+        <div class="rooms-grid">
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600" alt="Deluxe room">
+                <div class="content">
+                    <h2>Deluxe Room</h2>
+                    <p>Beautiful and comfortable room with modern facilities.</p>
+                    <span class="price">₹3,999 / Night</span>
+                    <a class="book-btn" href="#booking">Book Now</a>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600" alt="Executive room">
+                <div class="content">
+                    <h2>Executive Room</h2>
+                    <p>Premium comfort with an elegant interior.</p>
+                    <span class="price">₹5,999 / Night</span>
+                    <a class="book-btn" href="#booking">Book Now</a>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600" alt="Premium suite">
+                <div class="content">
+                    <h2>Premium Suite</h2>
+                    <p>Enjoy an unforgettable luxury experience.</p>
+                    <span class="price">₹7,999 / Night</span>
+                    <a class="book-btn" href="#booking">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card family-room">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600" alt="Family room">
+            <div class="content">
+                <h2>Family Room</h2>
+                <p>Spacious rooms perfect for family vacations.</p>
+                <span class="price">₹6,999 / Night</span>
+                <a class="book-btn" href="#booking">Book Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="facilities">
+    <div class="container">
+        <div class="section-title">
+            <h1>HOTEL FACILITIES</h1>
+            <p>Everything you need for a wonderful stay.</p>
+        </div>
+
+        <div class="facilities-grid">
+            <div class="facility">
+                <div class="icon">🏊</div>
+                <h3>Swimming Pool</h3>
+                <p>Enjoy a refreshing swimming experience.</p>
+            </div>
+            <div class="facility">
+                <div class="icon">🍽️</div>
+                <h3>Restaurant</h3>
+                <p>Enjoy delicious vegetarian and non-vegetarian food.</p>
+            </div>
+            <div class="facility">
+                <div class="icon">📶</div>
+                <h3>Free Wi-Fi</h3>
+                <p>Stay connected anytime.</p>
+            </div>
+            <div class="facility">
+                <div class="icon">🚗</div>
+                <h3>Free Parking</h3>
+                <p>Safe parking facilities.</p>
+            </div>
+            <div class="facility">
+                <div class="icon">💆</div>
+                <h3>Spa & Wellness</h3>
+                <p>Relax and refresh your mind.</p>
+            </div>
+            <div class="facility">
+                <div class="icon">🏋️</div>
+                <h3>Fitness Centre</h3>
+                <p>Modern gym equipment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="booking">
+    <div class="container">
+        <div class="section-title">
+            <h1>ROOM RESERVATION</h1>
+            <p>Book your favourite room and enjoy your stay!</p>
+        </div>
+
+        <div class="booking-box">
+            <form>
+                <div class="form-grid">
+                    <div>
+                        <label>Full Name:</label>
+                        <input type="text" placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label>Email Address:</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div>
+                        <label>Mobile Number:</label>
+                        <input type="tel" placeholder="Enter your mobile number" required>
+                    </div>
+                    <div>
+                        <label>Select Room:</label>
+                        <select required>
+                            <option value="">Choose your room</option>
+                            <option>Deluxe Room</option>
+                            <option>Executive Room</option>
+                            <option>Premium Suite</option>
+                            <option>Family Room</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Check-in Date:</label>
+                        <input type="date" required>
+                    </div>
+                    <div>
+                        <label>Check-out Date:</label>
+                        <input type="date" required>
+                    </div>
+                    <div>
+                        <label>Number of Guests:</label>
+                        <input type="number" min="1" max="10" required>
+                    </div>
+                    <div>
+                        <label>Special Requests:</label>
+                        <textarea placeholder="Any special requirements?"></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-row">
+                    <input type="submit" value="Confirm Booking">
+                    <input type="reset" value="Clear Form">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="management">
+    <div class="container">
+        <div class="section-title">
+            <h1>HOTEL MANAGEMENT SYSTEM</h1>
+            <p>Our hotel provides organised management services.</p>
+        </div>
+
+        <table class="management-table">
+            <tr>
+                <th>Sl. No</th>
+                <th>Management Department</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Room Management</td>
+                <td>Managing room details and availability.</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Customer Management</td>
+                <td>Maintaining guest information.</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Booking Management</td>
+                <td>Handling room reservations.</td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>Payment Management</td>
+                <td>Managing customer payments.</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>Staff Management</td>
+                <td>Managing hotel employees and duties.</td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>Check-in / Check-out</td>
+                <td>Managing guest arrival and departure.</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h1>CONTACT US</h1>
+        </div>
+        <div class="contact-inner">
+            <h3>Grand Palace Luxury Hotel & Resorts</h3>
+            <p>📍 Location: Bangalore, Karnataka, India</p>
+            <p>📞 Phone: +91 9876543210</p>
+            <p>✉️ Email: grandpalace@gmail.com</p>
+            <h3>We Are Always Happy to Serve You!</h3>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-box">
+        <h2>✦ GRAND PALACE ✦</h2>
+        <p>Luxury | Comfort | Hospitality</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#booking">Booking</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p>Copyright © 2026 Grand Palace Hotel.<br>All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
